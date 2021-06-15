@@ -1,0 +1,41 @@
+﻿@model IEnumerable<musica.Models.Song>
+
+@{
+    ViewData["Title"] = "Canciones";
+}
+
+<h2>Lista de canciones</h2>
+<p>
+    <a asp-action="CreateSong" class="btn btn-success">Nuevo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SongName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SongArtist)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SongProducer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.SongName)</td>
+                <td>@Html.DisplayFor(modelItem => item.SongArtist)</td>
+                <td>@Html.DisplayFor(modelItem => item.SongProducer)</td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@item.SongId">Editar</a>
+                    <a asp-action="Details" class="btn btn-success" asp-route-id="@item.SongId">Detalles</a>
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.SongId">Borrar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

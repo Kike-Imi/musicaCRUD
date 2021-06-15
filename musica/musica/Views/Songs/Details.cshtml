@@ -1,0 +1,42 @@
+﻿@model musica.Models.Song
+
+@{
+    ViewData["Title"] = "Detlles Canción";
+}
+
+<h2>Detalles Canción</h2>
+<hr />
+<div>
+    <h4>Canción</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SongName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SongName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SongArtist)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SongArtist)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SongProducer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SongProducer)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@Model.SongId">Editar</a>
+    <a asp-action="Index" class="btn btn-success">Regresar</a>
+</div>
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

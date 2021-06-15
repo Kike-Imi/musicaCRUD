@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model musica.Models.Song
+
+@{
+    ViewData["Title"] = "Borrar Canción";
+}
+
+<h2>DBorrar Canción</h2>
+<h3>¿Esta seguro que desea eliminar la canción?</h3>
+<hr />
+<div>
+    <h4>Canción</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SongName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SongName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SongArtist)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SongArtist)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SongProducer)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SongProducer)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="SongId" />
+        <input type="submit" class="btn btn-danger"  value="Borrar"/>
+        <a asp-action="Index" class="btn btn-success">Regresar</a>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
